@@ -10,6 +10,8 @@ import Bookings from "./pages/Bookings";
 import CustomerDashboard from "./pages/CustomerDashboard";
 import ProviderDashboard from "./pages/ProviderDashboard";
 import Profile from "./pages/Profile";
+import BookService from "./pages/BookService";
+import Payment from "./pages/Payment";
 
 function App() {
   return (
@@ -32,6 +34,18 @@ function App() {
         <Route path="/provider-dashboard" element={<ProviderDashboard />} />
 
         <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/bookings"
+          element={<Bookings />}
+        />
+        <Route
+          path="/payment"
+          element={<Payment />}
+        />
+        <Route
+          path="/book/:serviceName"
+          element={<BookService />}
+        />
       </Routes>
     </BrowserRouter>
   );

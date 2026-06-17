@@ -1,9 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,11 +20,21 @@ function Login() {
         }
       );
 
-      localStorage.setItem("token", res.data.token);
+      console.log(res.data);
+
+      localStorage.setItem(
+        "token",
+        res.data.token
+      );
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify(res.data.user)
+      );
 
       alert("Login Successful");
 
-      console.log(res.data);
+      navigate("/services");
 
     } catch (error) {
       alert(error.response.data.message);
@@ -29,36 +42,47 @@ function Login() {
   };
 
   return (
-    <div style={{ padding: "100px" }}>
-      <h2>Login</h2>
+    <div className="login-page">
+      <div className="login-container">
 
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) =>
-            setEmail(e.target.value)
-          }
-        />
+        <div className="login-left">
+          <h1>Welcome Back to Fixly</h1>
+          <p>
+            India's trusted home services platform.
+            Book electricians, plumbers, cleaners and more
+            with just a few clicks.
+          </p>
+        </div>
 
-        <br /><br />
+        <div className="login-card">
+          <h2>Sign In</h2>
 
-        <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) =>
-            setPassword(e.target.value)
-          }
-        />
+          <form onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="Enter Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-        <br /><br />
+            <input
+              type="password"
+              placeholder="Enter Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-        <button type="submit">
-          Login
-        </button>
-      </form>
+            <button type="submit">
+              Login
+            </button>
+            {/* <p>
+              Don't have an account?
+              <Link to="/register"> Sign Up</Link>
+            </p> */}
+          </form>
+        </div>
+
+      </div>
     </div>
   );
 }

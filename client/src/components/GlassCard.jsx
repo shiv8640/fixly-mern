@@ -1,11 +1,17 @@
+import { Link } from "react-router-dom";
+
 function GlassCard({ title }) {
   return (
     <div className="glass-card">
+
       <h3>{title}</h3>
 
-      <button>
-        Book Now
-      </button>
+      <Link to={`/book/${title}`}>
+        <button className="book-btn">
+          Book Now
+        </button>
+      </Link>
+
     </div>
   );
 }

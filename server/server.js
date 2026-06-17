@@ -1,3 +1,6 @@
+
+const bookingRoutes =
+  require("./routes/bookingRoutes");
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -26,6 +29,10 @@ mongoose
 // Routes
 app.use("/api/services", serviceRoutes);
 app.use("/api/auth", authRoutes);
+app.use(
+  "/api/bookings",
+  bookingRoutes
+);
 
 
 // Home Route

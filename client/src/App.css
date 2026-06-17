@@ -198,10 +198,10 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0);
+  background: rgba(7, 140, 236, 0);
   transition: background var(--t-fast);
 }
-.btn:hover::before { background: rgba(255,255,255,0.08); }
+.btn:hover::before { background: rgba(7, 140, 236, 0);; }
 
 .btn-primary {
   background: var(--grad-primary);
@@ -217,14 +217,14 @@ ul { list-style: none; }
   color: var(--text-primary);
   backdrop-filter: blur(12px);
 }
-.btn-ghost:hover { border-color: rgba(124,58,237,0.5); background: var(--glass-hover); transform: translateY(-1px); }
+.btn-ghost:hover { border-color: rgba(7, 140, 236, 0);; background: var(--glass-hover); transform: translateY(-1px); }
 
 .btn-outline {
   background: transparent;
-  border: 1px solid rgba(124,58,237,0.5);
+  border: 1px solid rgba(7, 140, 236, 0);;
   color: var(--violet-light);
 }
-.btn-outline:hover { background: rgba(124,58,237,0.1); border-color: var(--violet-light); }
+.btn-outline:hover { background: rgba(7, 140, 236, 0);; border-color: var(--violet-light); }
 
 .btn-sm { padding: 8px 18px; font-size: 0.85rem; }
 .btn-lg { padding: 16px 36px; font-size: 1.05rem; }
@@ -1568,3 +1568,298 @@ select.form-input option { background: var(--bg-elevated); color: var(--text-pri
 .w-full { width: 100%; }
 .relative { position: relative; }
 .hidden { display: none; }
+
+
+
+
+button {
+  background-color: #7c3aed !important;
+  color: white !important;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e1b4b,
+    #312e81
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 1200px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+.login-left {
+  flex: 1;
+}
+
+.login-left h1 {
+  color: white;
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.login-left p {
+  color: #cbd5e1;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 500px;
+}
+
+.login-card {
+  width: 400px;
+
+  background: rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  border-radius: 20px;
+
+  padding: 40px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.login-card h2 {
+  color: white;
+  margin-bottom: 25px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+
+  border-radius: 10px;
+  border: none;
+
+  background: rgba(255,255,255,0.08);
+
+  color: white;
+}
+
+.login-card input::placeholder {
+  color: #cbd5e1;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 15px;
+
+  background: linear-gradient(
+    90deg,
+    #7c3aed,
+    #2563eb
+  );
+
+  color: white;
+  border: none;
+
+  border-radius: 10px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.booking-page {
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-card {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.booking-card h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  color: white;
+}
+
+.booking-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.booking-card label {
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.booking-card input,
+.booking-card textarea,
+.booking-card select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.booking-card input:focus,
+.booking-card textarea:focus,
+.booking-card select:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 15px rgba(124,58,237,0.4);
+}
+
+.booking-card textarea {
+  resize: none;
+}
+
+.price-box {
+  margin-top: 10px;
+  padding: 18px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    rgba(124,58,237,0.25),
+    rgba(59,130,246,0.25)
+  );
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.booking-card button {
+  margin-top: 10px;
+  padding: 15px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #2563eb
+  );
+  transition: all 0.3s ease;
+}
+
+.booking-card button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(124,58,237,0.4);
+}
+
+.booking-card button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .booking-card {
+    padding: 25px;
+  }
+
+  .booking-card h1 {
+    font-size: 1.7rem;
+  }
+}
+
+
+
+
+.payment-page{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:120px 20px;
+}
+
+.payment-card{
+  width:100%;
+  max-width:600px;
+  padding:35px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.payment-card h1{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.payment-summary{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.payment-summary h2{
+  font-size:2rem;
+  margin-top:10px;
+}
+
+.payment-methods{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.method-card{
+  padding:18px;
+  border-radius:15px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.method-card:hover{
+  transform:translateY(-3px);
+}
+
+.pay-btn{
+  width:100%;
+  margin-top:25px;
+  padding:15px;
+  border:none;
+  border-radius:15px;
+  font-weight:bold;
+  cursor:pointer;
+}

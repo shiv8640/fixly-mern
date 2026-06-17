@@ -1,60 +1,101 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 function Register() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const handleRegister = async (e) => {
     e.preventDefault();
-    console.log(form);
+
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/register",
+        {
+          name,
+          email,
+          password,
+          role: "customer",
+        }
+      );
+
+      alert(res.data.message);
+      localStorage.setItem(
+        "token",
+        res.data.token
+
+      );
+      localStorage.setItem(
+        "user",
+        JSON.stringify(res.data.user)
+      );
+
+      alert("Registration Successful");
+
+      navigate("/services");
+
+    } catch (error) {
+      alert(error.response?.data?.message || "Registration Failed");
+    }
   };
 
   return (
-    <div>
-      <h1>Register</h1>
+    <div className="login-page">
+      <div className="login-container">
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          onChange={handleChange}
-        />
+        <div className="login-left">
+          <h1>Join Fixly Today</h1>
 
-        <br /><br />
+          <p>
+            Create your account and access trusted
+            home services across India.
+            Fast booking, verified professionals,
+            and seamless experience.
+          </p>
+        </div>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
+        <div className="login-card">
+          <h2>Create Account</h2>
 
-        <br /><br />
+          <form onSubmit={handleRegister}>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={name}
+              onChange={(e) =>
+                setName(e.target.value)
+              }
+            />
 
-        <br /><br />
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) =>
+                setEmail(e.target.value)
+              }
+            />
 
-        <button type="submit">
-          Register
-        </button>
-      </form>
+            <input
+              type="password"
+              placeholder="Create Password"
+              value={password}
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
+            />
+
+            <button type="submit">
+              Create Account
+            </button>
+
+          </form>
+        </div>
+
+      </div>
     </div>
   );
 }

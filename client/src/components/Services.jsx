@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import GlassCard from "./GlassCard";
@@ -30,13 +31,21 @@ function Services() {
 
         {services.map((service) => (
 
-          <GlassCard
-            key={service._id}
-            title={service.name}
-          />
+          <div key={service._id}>
+
+            <GlassCard
+              title={service.name}
+            />
+
+            {/* <Link to={`/book/${service.name}`}>
+              <button className="book-btn">
+                Book Now
+              </button>
+            </Link> */}
+
+          </div>
 
         ))}
-
       </div>
 
     </section>
