@@ -12,11 +12,16 @@ import ProviderDashboard from "./pages/ProviderDashboard";
 import Profile from "./pages/Profile";
 import BookService from "./pages/BookService";
 import Payment from "./pages/Payment";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
+
+      <Navbar />
+
       <Routes>
+
         <Route path="/" element={<HomePage />} />
 
         <Route path="/login" element={<Login />} />
@@ -29,26 +34,28 @@ function App() {
 
         <Route path="/bookings" element={<Bookings />} />
 
-        <Route path="/customer-dashboard" element={<CustomerDashboard />} />
+        <Route
+          path="/customer-dashboard"
+          element={<CustomerDashboard />}
+        />
 
-        <Route path="/provider-dashboard" element={<ProviderDashboard />} />
+        <Route
+          path="/provider-dashboard"
+          element={<ProviderDashboard />}
+        />
 
         <Route path="/profile" element={<Profile />} />
-        <Route
-          path="/bookings"
-          element={<Bookings />}
-        />
-        <Route
-          path="/payment"
-          element={<Payment />}
-        />
-        <Route
+
+        <Route path="/payment" element={<Payment />} />
+
+        {/* <Route
           path="/book/:serviceName"
           element={<BookService />}
-        />
+        /> */}
+
       </Routes>
+
     </BrowserRouter>
   );
 }
-
 export default App;

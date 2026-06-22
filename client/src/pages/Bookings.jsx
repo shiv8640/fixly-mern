@@ -55,6 +55,12 @@ function Bookings() {
               <strong>Status:</strong>{" "}
               {booking.status}
             </p>
+            {booking.status === "Accepted" && (
+              <p>
+                <strong>Provider:</strong>
+                {booking.providerName}
+              </p>
+            )}
           </div>
         ))}
       </div>

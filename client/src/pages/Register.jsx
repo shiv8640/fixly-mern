@@ -6,18 +6,19 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("customer");
   const navigate = useNavigate();
   const handleRegister = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
+     const res = await axios.post(
         "http://localhost:5000/api/auth/register",
         {
           name,
           email,
           password,
-          role: "customer",
+          role,
         }
       );
 
@@ -87,6 +88,20 @@ function Register() {
                 setPassword(e.target.value)
               }
             />
+            <label>Select Account Type</label>
+
+            <select
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            >
+              <option value="customer">
+                Customer
+              </option>
+
+              <option value="provider">
+                Provider
+              </option>
+            </select>
 
             <button type="submit">
               Create Account

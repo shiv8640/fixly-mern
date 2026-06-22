@@ -34,7 +34,11 @@ function Login() {
 
       alert("Login Successful");
 
-      navigate("/services");
+      if (res.data.user.role === "provider") {
+  navigate("/provider");
+} else {
+  navigate("/services");
+}
 
     } catch (error) {
       alert(error.response.data.message);

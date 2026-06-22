@@ -38,5 +38,34 @@ router.get("/", async (req, res) => {
   }
 
 });
+router.put("/accept/:id", async (req, res) => {
+  try {
+
+    const {
+      providerId,
+      providerName,
+    } = req.body;
+
+    const booking =
+      await Booking.findByIdAndUpdate(
+        req.params.id,
+        {
+          status: "Accepted",
+          providerId,
+          providerName,
+        },
+        { new: true }
+      );
+
+    res.json(booking);
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message,
+    });
+
+  }
+});
 
 module.exports = router;
