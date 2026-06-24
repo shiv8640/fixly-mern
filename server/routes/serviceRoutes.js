@@ -1,20 +1,37 @@
+// const express = require("express");
+// const router = express.Router();
+
+// const Service = require("../models/Service");
+
+
+// // Get All Services
+
+// router.get("/", async (req, res) => {
+//   try {
+//     const services = await Service.find();
+
+//     res.json(services);
+//   } catch (error) {
+//     res.status(500).json({
+//       message: error.message,
+//     });
+//   }
+// });
+
+// module.exports = router;
+
 const express = require("express");
 const router = express.Router();
 
 const Service = require("../models/Service");
 
-
-// Get All Services
-
+// GET ALL SERVICES
 router.get("/", async (req, res) => {
   try {
     const services = await Service.find();
-
     res.json(services);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
