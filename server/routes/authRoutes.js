@@ -51,7 +51,7 @@ router.post("/register", async (req, res) => {
         userId: newUser._id,
         role: newUser.role,
       },
-      "fixlysecretkey",
+       process.env.JWT_SECRET,
       {
         expiresIn: "7d",
       }
@@ -116,7 +116,7 @@ router.post("/login", async (req, res) => {
         userId: user._id,
         role: user.role,
       },
-      "fixlysecretkey",
+      process.env.JWT_SECRET,
       {
         expiresIn: "7d",
       }

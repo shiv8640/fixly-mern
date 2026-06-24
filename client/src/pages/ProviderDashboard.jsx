@@ -18,7 +18,7 @@ function ProviderDashboard() {
 
     axios
       .get(
-        "http://localhost:5000/api/bookings"
+        "http://https://fixly-backend-yzly.onrender.com/api/bookings"
       )
       .then((res) => {
         setBookings(res.data);
@@ -33,7 +33,7 @@ function ProviderDashboard() {
     );
 
     await axios.put(
-      `http://localhost:5000/api/bookings/accept/${id}`,
+      `http://https://fixly-backend-yzly.onrender.com/api/bookings/accept/${id}`,
       {
         providerId: user.id,
         providerName: user.name,
@@ -46,7 +46,7 @@ function ProviderDashboard() {
   const rejectBooking = async (id) => {
 
     await axios.put(
-      `http://localhost:5000/api/bookings/reject/${id}`
+      `http://https://fixly-backend-yzly.onrender.com/api/bookings/reject/${id}`
     );
 
     window.location.reload();

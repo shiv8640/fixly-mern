@@ -1,4 +1,4 @@
-
+require("dotenv").config();
 const bookingRoutes = require("./routes/bookingRoutes");
 const express = require("express");
 const cors = require("cors");
@@ -11,6 +11,7 @@ const serviceRoutes = require("./routes/serviceRoutes");
 const authRoutes = require("./routes/authRoutes");
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 
 // Middleware
@@ -19,12 +20,11 @@ app.use(express.json());
 
 
 // MongoDB Connection
-mongoose.connect(
-  "mongodb://fixlyadmin021:fixly10000@ac-t7gu2rx-shard-00-00.jgeitdg.mongodb.net:27017,ac-t7gu2rx-shard-00-01.jgeitdg.mongodb.net:27017,ac-t7gu2rx-shard-00-02.jgeitdg.mongodb.net:27017/?ssl=true&replicaSet=atlas-13hsu7-shard-0&authSource=admin&appName=fixly"
-)
-  .then(() =>
-    console.log("MongoDB Connected")
-  )
+
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
 // Routes
@@ -114,6 +114,6 @@ app.get("/addservices", async (req, res) => {
 
 
 // Server Start
-app.listen(5000, "0.0.0.0", () => {
-  console.log("Server running");
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on ${PORT}`);
 });
