@@ -10,7 +10,7 @@ function Services() {
   useEffect(() => {
 
    axios.get(
-  "http://10.33.224.135:5000/api/services"
+  "https://fixly-backend-yzly.onrender.com"
 )
       .then((res) => {
 
