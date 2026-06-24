@@ -1,14 +1,15 @@
 require("dotenv").config();
-const bookingRoutes = require("./routes/bookingRoutes");
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-const User = require("./models/User");
-const Service = require("./models/Service");
-
+const bookingRoutes = require("./routes/bookingRoutes");
 const serviceRoutes = require("./routes/serviceRoutes");
 const authRoutes = require("./routes/authRoutes");
+
+const User = require("./models/User");
+const Service = require("./models/Service");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -30,10 +31,7 @@ mongoose
 // Routes
 app.use("/api/services", serviceRoutes);
 app.use("/api/auth", authRoutes);
-app.use(
-  "/api/bookings",
-  bookingRoutes
-);
+app.use( "/api/bookings", bookingRoutes);
 
 
 // Home Route
