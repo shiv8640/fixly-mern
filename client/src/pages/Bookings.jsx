@@ -6,20 +6,19 @@ function Bookings() {
 
   useEffect(() => {
 
-    axios
-      .get(
-        "http://localhost:5000/api/bookings"
-      )
+    const user = JSON.parse(
+      localStorage.getItem("user")
+    );
+
+    axios.get(
+      `http://10.33.224.135:5000/api/bookings/${user.id}`
+    )
       .then((res) => {
-
-        setBookings(res.data);
         console.log(res.data);
-
+        setBookings(res.data);
       })
       .catch((err) => {
-
         console.log(err);
-
       });
 
   }, []);

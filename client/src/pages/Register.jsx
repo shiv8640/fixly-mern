@@ -8,20 +8,23 @@ function Register() {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("customer");
   const navigate = useNavigate();
+  const [bio, setBio] = useState("");
+  const [experience, setExperience] = useState("");
   const handleRegister = async (e) => {
     e.preventDefault();
 
     try {
-     const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
-        {
-          name,
-          email,
-          password,
-          role,
-        }
-      );
-
+      const res = await axios.post(
+  "http://10.33.224.135:5000/api/auth/register",
+  {
+    name,
+    email,
+    password,
+    role,
+    bio,
+    experience,
+  }
+);
       alert(res.data.message);
       localStorage.setItem(
         "token",
@@ -102,6 +105,26 @@ function Register() {
                 Provider
               </option>
             </select>
+            {role === "provider" && (
+              <>
+                <input
+                  type="number"
+                  placeholder="Experience (Years)"
+                  value={experience}
+                  onChange={(e) =>
+                    setExperience(e.target.value)
+                  }
+                />
+
+                <textarea
+                  placeholder="Your Bio"
+                  value={bio}
+                  onChange={(e) =>
+                    setBio(e.target.value)
+                  }
+                />
+              </>
+            )}
 
             <button type="submit">
               Create Account

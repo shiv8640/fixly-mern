@@ -1,6 +1,5 @@
 
-const bookingRoutes =
-  require("./routes/bookingRoutes");
+const bookingRoutes = require("./routes/bookingRoutes");
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -20,11 +19,13 @@ app.use(express.json());
 
 
 // MongoDB Connection
-mongoose
-  .connect("mongodb://127.0.0.1:27017/fixly")
-  .then(() => console.log("MongoDB Connected"))
+mongoose.connect(
+  "mongodb://fixlyadmin021:fixly10000@ac-t7gu2rx-shard-00-00.jgeitdg.mongodb.net:27017,ac-t7gu2rx-shard-00-01.jgeitdg.mongodb.net:27017,ac-t7gu2rx-shard-00-02.jgeitdg.mongodb.net:27017/?ssl=true&replicaSet=atlas-13hsu7-shard-0&authSource=admin&appName=fixly"
+)
+  .then(() =>
+    console.log("MongoDB Connected")
+  )
   .catch((err) => console.log(err));
-
 
 // Routes
 app.use("/api/services", serviceRoutes);
@@ -113,6 +114,6 @@ app.get("/addservices", async (req, res) => {
 
 
 // Server Start
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+app.listen(5000, "0.0.0.0", () => {
+  console.log("Server running");
 });

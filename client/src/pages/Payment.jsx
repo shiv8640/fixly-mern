@@ -17,13 +17,14 @@ function Payment() {
 
   const handlePayment = async () => {
     try {
-
+  console.log("STATE:", location.state);
       const user = JSON.parse(
         localStorage.getItem("user")
       );
+      console.log("USER:", user);
 
       await axios.post(
-        "http://localhost:5000/api/bookings",
+        "http://10.33.224.135:5000/api/bookings",
         {
           userId: user.id,
           serviceName,
@@ -39,15 +40,16 @@ function Payment() {
 
       navigate("/bookings");
 
-    } catch (error) {
-
-      console.log(error);
+    }
+    
+    catch (error) {
+      console.log(error.response);
+      console.log(error.response?.data);
 
       alert(
         error.response?.data?.message ||
         "Booking Failed"
       );
-
     }
   };
 

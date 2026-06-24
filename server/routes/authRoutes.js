@@ -12,7 +12,14 @@ const User = require("../models/User");
 // ======================
 router.post("/register", async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    const {
+      name,
+      email,
+      password,
+      role,
+      bio,
+      experience,
+    } = req.body;
 
     // Check existing user
     const existingUser = await User.findOne({ email });
@@ -31,7 +38,9 @@ router.post("/register", async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      role: role || "customer",
+      role,
+      bio,
+      experience,
     });
 
     await newUser.save();
@@ -50,15 +59,18 @@ router.post("/register", async (req, res) => {
 
     // Response
     res.status(201).json({
-      message: "User Registered Successfully",
-      token,
-      user: {
-        id: newUser._id,
-        name: newUser.name,
-        email: newUser.email,
-        role: newUser.role,
-      },
-    });
+  message: "User Registered Successfully",
+  token,
+  user: {
+    id: newUser._id,
+    name: newUser.name,
+    email: newUser.email,
+    role: newUser.role,
+    bio: newUser.bio,
+    experience: newUser.experience,
+    rating: newUser.rating,
+  },
+});
 
   } catch (error) {
     console.log("REGISTER ERROR:", error);
@@ -111,16 +123,19 @@ router.post("/login", async (req, res) => {
     );
 
     // Success Response
-    res.status(200).json({
-      message: "Login Successful",
-      token,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-      },
-    });
+   res.status(200).json({
+  message: "Login Successful",
+  token,
+  user: {
+    id: user._id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+    bio: user.bio,
+    experience: user.experience,
+    rating: user.rating,
+  },
+});
 
   } catch (error) {
     console.log("LOGIN ERROR:", error);

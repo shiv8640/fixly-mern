@@ -9,8 +9,9 @@ function Services() {
 
   useEffect(() => {
 
-    axios
-      .get("http://localhost:5000/api/services")
+   axios.get(
+  "http://10.33.224.135:5000/api/services"
+)
       .then((res) => {
 
         setServices(res.data);

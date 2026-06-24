@@ -21,6 +21,10 @@ function App() {
       <Navbar />
 
       <Routes>
+        <Route
+          path="/book/:serviceName"
+          element={<BookService />}
+        />
 
         <Route path="/" element={<HomePage />} />
 
@@ -48,10 +52,6 @@ function App() {
 
         <Route path="/payment" element={<Payment />} />
 
-        {/* <Route
-          path="/book/:serviceName"
-          element={<BookService />}
-        /> */}
 
       </Routes>
 

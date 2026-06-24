@@ -38,6 +38,23 @@ router.get("/", async (req, res) => {
   }
 
 });
+router.get("/:userId", async (req, res) => {
+  try {
+
+    const bookings = await Booking.find({
+      userId: req.params.userId,
+    });
+
+    res.json(bookings);
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message,
+    });
+
+  }
+});
 router.put("/accept/:id", async (req, res) => {
   try {
 

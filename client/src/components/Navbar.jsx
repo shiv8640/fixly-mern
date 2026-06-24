@@ -106,19 +106,21 @@ function Navbar() {
                 </Link>
               </>
             )}
+            
 
             {user && (
               <>
-                <span
-                  style={{
-                    color: "white",
-                    marginLeft: "15px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  👤 {user.name}
-                </span>
-
+               <Link
+  to="/profile"
+  style={{
+    color: "white",
+    marginLeft: "15px",
+    fontWeight: "bold",
+    textDecoration: "none",
+  }}
+>
+  👤 {user.name}
+</Link>
                 <button
                   onClick={handleLogout}
                   style={{
@@ -209,16 +211,15 @@ function Navbar() {
 
           {user && (
             <>
-              <div
-                style={{
-                  color: "white",
-                  fontWeight: "bold",
-                  padding: "10px 0",
-                }}
-              >
-                👤 {user.name}
-              </div>
-
+              <Link
+  to="/profile"
+  className="navbar-link"
+  style={{
+    fontWeight: "bold",
+  }}
+>
+  👤 {user.name}
+</Link>
               <button
                 onClick={handleLogout}
                 className="btn"
