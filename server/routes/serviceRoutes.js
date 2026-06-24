@@ -6,16 +6,21 @@ const Service = require("../models/Service");
 
 // Get All Services
 
-router.get("/", async (req, res) => {
-  try {
-    const services = await Service.find();
+// router.get("/", async (req, res) => {
+//   try {
+//     const services = await Service.find();
 
-    res.json(services);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
+//     res.json(services);
+//   } catch (error) {
+//     res.status(500).json({
+//       message: error.message,
+//     });
+//   }
+// });
+
+// module.exports = router;
+router.get("/", (req, res) => {
+  res.json([{ name: "Test Service" }]);
 });
 
 module.exports = router;

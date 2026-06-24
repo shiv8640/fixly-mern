@@ -29,7 +29,7 @@ mongoose
   .catch((err) => console.log(err));
 
 // Routes
-app.use("/api/services", serviceRoutes);
+app.use("/api/services/", serviceRoutes);
 app.use("/api/auth", authRoutes);
 app.use( "/api/bookings", bookingRoutes);
 
